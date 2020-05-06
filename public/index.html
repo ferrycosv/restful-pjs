@@ -1,11 +1,25 @@
 <!DOCTYPE html>
-<html lang='en'>
-
-<head>
-  <meta charset='utf8'>
-  <title>RESTful P.JS</title>
-</head>
-
-<body></body>
-
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO List</title>
+    <link rel="stylesheet" href="font-awesome.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="./data/todoList.js"></script>
+    <script src="./log.js"></script>
+    <script src="./handler.js"></script>
+  </head>
+  <body>
+    <div id="todoDiv" class="todoInput">
+      <div class="main-input">
+        <i class="fa fa-check-circle" onclick="handler.toggleAll()"></i
+        ><input
+          type="text"
+          placeholder="What needs to be done?"
+          onkeyup="handler.addTodo(event)"
+        />
+      </div>
+    </div>
+  </body>
 </html>
