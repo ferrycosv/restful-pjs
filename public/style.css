@@ -1,0 +1,78 @@
+body {
+  box-sizing: border-box;
+  background: #003459;
+  font-family: "helvetica neue";
+  font-size: 20px;
+  font-weight: 200;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.todoInput {
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+.main-input {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.main-input input {
+  margin: 0;
+  text-align: left;
+  border: 10px solid #f7f7f7;
+  width: 80%;
+  border-radius: 5px;
+  font-size: 40px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+}
+
+.todolist {
+  margin: auto;
+  margin-bottom: 5px;
+  padding: 6px;
+  display: flex;
+  max-width: 450px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.todolist input {
+  margin: 0;
+  text-align: left;
+  width: 120%;
+  font-size: 20px;
+  padding: 0;
+  border: none;
+  border-radius: 3px;
+}
+
+.todolist .fa {
+  font-size: 40px;
+}
+
+.fa {
+  color: green;
+  font-size: 100px;
+  width: 20%;
+  margin: auto;
+  text-align: center;
+}
+
+.fa:hover {
+  transition: all 0.65s;
+  transform: rotateY(360deg);
+}
+
+.gray {
+  color: grey;
+}
+
+.red {
+  color: red;
+}
