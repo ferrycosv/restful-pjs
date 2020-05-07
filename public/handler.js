@@ -55,21 +55,24 @@ var handler = {
   },
   toggleTodo: function (event) {
     const position = Number(event.target.getAttribute("data-position"));
-    todoList.toggleCompleted(position);
-    todoList.displayTodos();
-    // log the user input
-    log.push({
-      handler: "toggleTodo",
-      todoList: JSON.parse(JSON.stringify(todoList)),
+    const val = event.target.classList.contains("gray");
+    todoList.toggleCompleted(position, val).then((res) => {
+      todoList.displayTodos();
+      // log the user input
+      log.push({
+        handler: "toggleTodo",
+        todoList: JSON.parse(JSON.stringify(res)),
+      });
     });
   },
   toggleAll: function () {
-    todoList.toggleAll();
-    todoList.displayTodos();
-    // log the user input
-    log.push({
-      handler: "toggleAll",
-      todoList: JSON.parse(JSON.stringify(todoList)),
+    todoList.toggleAll().then((res) => {
+      todoList.displayTodos();
+      // log the user input
+      log.push({
+        handler: "toggleAll",
+        todoList: JSON.parse(JSON.stringify(res)),
+      });
     });
   },
 };

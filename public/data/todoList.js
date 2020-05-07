@@ -52,25 +52,57 @@ const todoList = {
       return err;
     }
   },
-  toggleCompleted: function (position) {
-    let todo = this.todos[position];
-    todo.completed = !todo.completed;
+  toggleCompleted: async function (position, value) {
+    try {
+      const res = await fetch(`${this.baseURL}todos/${position}`, {
+        method: "PATCH",
+        body: JSON.stringify({ completed: value }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
+      const data = await res.json();
+      //console.log("success");
+      return data;
+    } catch (err) {
+      //console.log("error");
+      return err;
+    }
   },
-  toggleAll: function () {
-    let toggle = false;
-    this.todos.forEach((element) => {
-      if (!element.completed) {
-        toggle = true;
-      }
-    });
-    if (toggle) {
-      this.todos.forEach((element) => {
-        element.completed = true;
+  toggleAll: async function () {
+    try {
+      const res = await fetch(this.baseURL + "todos/");
+      const data = await res.json();
+      let toggle = false;
+      data.forEach((element) => {
+        if (!element.completed) {
+          toggle = true;
+        }
       });
-    } else {
-      this.todos.forEach((element) => {
-        element.completed = false;
+      data.forEach((element) => {
+        element.completed = toggle;
       });
+      return Promise.all(
+        data.map(async (item) => {
+          try {
+            const res = await fetch(`${this.baseURL}todos/${item.id}`, {
+              method: "PATCH",
+              body: JSON.stringify({ completed: item.completed }),
+              headers: {
+                "Content-type": "application/json; charset=UTF-8",
+              },
+            });
+            const data = await res.json();
+            //console.log("success");
+            return data;
+          } catch (err) {
+            //console.log("error");
+            return err;
+          }
+        })
+      );
+    } catch (err) {
+      return err;
     }
   },
   displayTodos: async function () {

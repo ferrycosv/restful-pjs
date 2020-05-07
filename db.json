@@ -2,18 +2,13 @@
   "todos": [
     {
       "todoText": "weteren",
-      "completed": false,
+      "completed": true,
       "id": 1
     },
     {
       "completed": true,
       "todoText": "1c67",
       "id": 5
-    },
-    {
-      "todoText": "qwerty",
-      "completed": false,
-      "id": 6
     },
     {
       "completed": true,
