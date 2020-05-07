@@ -28,3 +28,11 @@
 - The existing functionality must be refactored to delete the object from the server.
 - I wrote the code in `data/todoList.js` changed the `deleteTodo` function to interact with the REST API server using asynchronous fetch calls and processing the result object.
 - Updated handler function `deleteTodo` to process return value of async function call and perform the list update.
+
+---
+
+## 4. User Story: `Delete todo`
+
+- The existing functionality must be refactored to toggle all or a single task completed from the data stored on the server.
+- I wrote the code in `data/todoList.js` changed the `toggleCompleted` and `toggleAll` functions to interact with the REST API server using asynchronous fetch calls and processing the result object.
+- Updated handler function `toggleTodo` and `toggleAll` to process the return value of the async function call and re-render the list on screen.
