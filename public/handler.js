@@ -1,14 +1,14 @@
 var handler = {
   addTodo: function(event) {
     if (event.keyCode === 13 && event.target.value !== "") {
-      todoList.addTodo(event.target.value);
+      todoList.addTodo(event.target.value).then((res) => {
       event.target.value = "";
       todoList.displayTodos();
       // log the user input
       log.push({
         handler: "addTodo",
-        todoList: JSON.parse(JSON.stringify(todoList))
-      });
+        todoList: JSON.parse(JSON.stringify(res))
+      });});
     }
   },
   changeTodo: function(event) {

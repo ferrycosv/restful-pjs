@@ -1,45 +1,61 @@
 const todoList = {
   todos: [],
-  addTodo: function(inputText) {
-    this.todos.push({
-      todoText: inputText,
-      completed: false
-    });
+  addTodo: async function (inputText) {
+    try {
+      const res = await fetch("http://localhost:3000/todos/", {
+        method: "POST",
+        body: JSON.stringify({
+          todoText: inputText,
+          completed: false,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
+      const data = await res.json();
+      //console.log("success");
+      return data;
+    } catch (err) {
+      //console.log("error");
+      return err;
+    }
   },
-  changeTodo: function(position, todoText) {
+  changeTodo: function (position, todoText) {
     this.todos[position].todoText = todoText;
   },
-  deleteTodo: function(position) {
+  deleteTodo: function (position) {
     this.todos.splice(position, 1);
   },
-  toggleCompleted: function(position) {
+  toggleCompleted: function (position) {
     let todo = this.todos[position];
     todo.completed = !todo.completed;
   },
-  toggleAll: function() {
+  toggleAll: function () {
     let toggle = false;
-    this.todos.forEach(element => {
+    this.todos.forEach((element) => {
       if (!element.completed) {
         toggle = true;
       }
     });
     if (toggle) {
-      this.todos.forEach(element => {
+      this.todos.forEach((element) => {
         element.completed = true;
       });
     } else {
-      this.todos.forEach(element => {
+      this.todos.forEach((element) => {
         element.completed = false;
       });
     }
   },
-  displayTodos: function() {
+  displayTodos: async function () {
     let i = 0;
     const parent = document.getElementById("todoDiv");
     const head = parent.children[0];
     parent.innerHTML = "";
     parent.appendChild(head);
-    this.todos.forEach(element => {
+    const res = await fetch("http://localhost:3000/todos/");
+    const data = await res.json();
+    data.forEach((element) => {
       const listTodo = document.createElement("div");
       listTodo.className = "todolist";
       // check icon
@@ -70,5 +86,5 @@ const todoList = {
       parent.appendChild(listTodo);
       i++;
     });
-  }
+  },
 };
