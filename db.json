@@ -1,68 +1,44 @@
 {
   "todos": [
     {
-      "todoText": "new todo",
+      "todoText": "weteren",
       "completed": false,
       "id": 1
     },
     {
-      "completed": true,
+      "todoText": "12345",
+      "completed": false,
       "id": 2
     },
     {
-      "todoText": "third todo",
-      "completed": true,
+      "todoText": "azerty",
+      "completed": false,
       "id": 3
     },
     {
+      "todoText": "test",
       "completed": false,
-      "todoText": "wm9ug",
       "id": 4
     },
     {
       "completed": true,
       "todoText": "1c67",
-      "id": 6
+      "id": 5
     },
     {
+      "todoText": "qwerty",
       "completed": false,
-      "todoText": "tsfqv",
-      "id": 7
+      "id": 6
     },
     {
       "completed": true,
       "todoText": "m2px",
-      "id": 8
+      "id": 7
     },
     {
       "completed": true,
       "todoText": "uwo7q",
-      "id": 9
-    },
-    {
-      "completed": true,
-      "todoText": "qn536o",
-      "id": 10
-    },
-    {
-      "todoText": "qwerty",
-      "completed": false,
-      "id": 11
-    },
-    {
-      "todoText": "aha",
-      "completed": false,
-      "id": 12
-    },
-    {
-      "todoText": "asdf",
-      "completed": false,
-      "id": 13
-    },
-    {
-      "todoText": "qwerty",
-      "completed": false,
-      "id": 14
+      "id": 8
     }
   ]
 }
