@@ -3,7 +3,7 @@ const todoList = {
   baseURL: "http://localhost:3000/",
   addTodo: async function (inputText) {
     try {
-      const res = await fetch(this.baseURL+"todos/", {
+      const res = await fetch(this.baseURL + "todos/", {
         method: "POST",
         body: JSON.stringify({
           todoText: inputText,
@@ -23,7 +23,7 @@ const todoList = {
   },
   changeTodo: async function (position, todoText) {
     try {
-      const res = await fetch(`${this.baseURL}todos/${position}`,{
+      const res = await fetch(`${this.baseURL}todos/${position}`, {
         method: "PUT",
         body: JSON.stringify({
           todoText: todoText,
@@ -39,8 +39,18 @@ const todoList = {
       return err;
     }
   },
-  deleteTodo: function (position) {
-    this.todos.splice(position, 1);
+  deleteTodo: async function (position) {
+    try {
+      const res = await fetch(`${this.baseURL}todos/${position}`, {
+        method: "DELETE",
+      });
+      const data = await res.json();
+      //console.log("success");
+      return data;
+    } catch (err) {
+      //console.log("error");
+      return err;
+    }
   },
   toggleCompleted: function (position) {
     let todo = this.todos[position];
@@ -69,7 +79,7 @@ const todoList = {
     const head = parent.children[0];
     parent.innerHTML = "";
     parent.appendChild(head);
-    const res = await fetch(this.baseURL+"todos/");
+    const res = await fetch(this.baseURL + "todos/");
     const data = await res.json();
     data.forEach((element) => {
       const listTodo = document.createElement("div");
