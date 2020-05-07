@@ -43,14 +43,15 @@ var handler = {
   deleteTodo: function (event) {
     if (confirm("Do you want to delete the task?")) {
       const position = Number(event.target.getAttribute("data-position"));
-      todoList.deleteTodo(position);
+      todoList.deleteTodo(position).then((res) => {
+        todoList.displayTodos();
+        // log the user input
+        log.push({
+          handler: "deleteTodo",
+          todoList: JSON.parse(JSON.stringify(res)),
+        });
+      });
     }
-    todoList.displayTodos();
-    // log the user input
-    log.push({
-      handler: "deleteTodo",
-      todoList: JSON.parse(JSON.stringify(todoList)),
-    });
   },
   toggleTodo: function (event) {
     const position = Number(event.target.getAttribute("data-position"));

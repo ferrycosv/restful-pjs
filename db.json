@@ -6,21 +6,6 @@
       "id": 1
     },
     {
-      "todoText": "12345",
-      "completed": false,
-      "id": 2
-    },
-    {
-      "todoText": "azerty",
-      "completed": false,
-      "id": 3
-    },
-    {
-      "todoText": "test",
-      "completed": false,
-      "id": 4
-    },
-    {
       "completed": true,
       "todoText": "1c67",
       "id": 5
