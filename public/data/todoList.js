@@ -1,6 +1,7 @@
 const todoList = {
   todos: [],
-  baseURL: "http://localhost:3000/",
+  baseURL: "https://my-json-server.typicode.com/ferrycosv/restful-pjs/", 
+  //Provided URL just offer functionality without persistence, no changes are saved but all the responses are valid!
   addTodo: async function (inputText) {
     try {
       const res = await fetch(this.baseURL + "todos/", {
